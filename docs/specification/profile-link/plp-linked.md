@@ -1,7 +1,7 @@
 # Linked Profiles
 
-If LSP ([Limited Scope Profiles](lsp-overview.md)) is linked to a main profile, the communications of the LSP are also mirrored to the main profile. This is done by the LSP dApp forwarding all incoming and outgoing messages to the main profile.
-If a dm3 compatible app does not support linking to LSP, these communications will not be displayed. In the app of the main profile, LSP communications are usually displayed as read-only communications.
+If LP ([Linked Profiles](lsp-overview.md)) is linked to a main profile, the communications of theP are also mirrored to the main profile. This is done by the LP dApp forwarding all incoming and outgoing messages to the main profile.
+If a **dm3** compatible app does not support linking to LP, these communications will not be displayed. In the app of the main profile, LP communications are usually displayed as read-only communications.
 
 ## LSP Conversations
 

@@ -67,21 +67,22 @@ Although interoperability can be achieved by all using the same core protocol an
 The omnipresent problem of spam must be solved sensibly, as otherwise interoperability in particular will lead to more strain.
 It is essential that better methods than the existing filters and blacklists are used. Web3 in particular provides us with suitable tools to solve the spam problem once and for all.
 
+#### 1.2.3. What is essential?
+
+It is particularly important to focus on the really essential functions when setting up a protocol that is intended to establish interoperability between various existing and new protocols, services and applications. These are
+
+1. a scalable, decentralized, scalable and permissionless network for the transmission of messages.
+2. a decentralized, permissionless registry for the communication profiles (public keys for encryption and signatures and information on how and where messages can be delivered)
+3. a lean and modular protocol that supports the above features and can be used both as a layer 1 and as a layer 1 protocol and that does not introduce any restrictions compared to existing systems.
+
 ### 1.3. Introducing the dm3 Protocol
 
-In response to the challenges and limitations posed by traditional communication methods and the emerging complexities of the web3 landscape, the dm3 protocol emerges as a transformative solution. At its core, the dm3 protocol seeks to establish a seamless, decentralized, and user-centric messaging ecosystem within the web3 space and beyond.
+???
 
-#### 1.3.1. A Foundational Standard for Web3 Messaging
+## 2. Market ???
 
-Anchored by the DM3MTP (dm3 message transfer protocol), dm3 protocol acts as a linchpin, connecting diverse messaging services, applications, and protocols within the web3 ecosystem. Its primary objective is to set forth a foundational standard that fosters interoperability and integration, addressing the longstanding challenge of siloed communication platforms.
-
-Central to the dm3 protocol's ethos is the empowerment of users. By offering a range of features designed to maximize user autonomy, dm3 ensures that individuals retain control over their data, messages, and communication preferences. This liberation extends to the choice of messaging applications that align with individual needs, thereby dismantling the limitations associated with platform confinement.
-
-In essence, the dm3 protocol represents a paradigm shift in communication. By seamlessly integrating self-sovereign identity, encryption, and interoperability, dm3 upholds users' autonomy and control while enabling the creation of a decentralized messaging ecosystem. As the dm3 protocol embodies the principles of web3, users are invited to explore a new era of messaging that places them at the centre of their digital interactions. 
-
-
-## 2. Market
 ### 2.1. Market size (potential users)
+
 In the ever-evolving realm of communication, messaging has emerged as a cornerstone of digital interactions. With the proliferation of modern messaging platforms, the number of active users has surged, illustrating the integral role these tools play in our interconnected world.
 
 **2.1.1 The Current Landscape**
@@ -97,8 +98,8 @@ When delving into potential users who are already adopting chat and email servic
 
 As a protocol deeply integrated with the Ethereum Name Service (ENS), dm3 protocol's reach aligns with the Ethereum ecosystem. ENS, reporting over 50 thousand monthly active users in September 2022 ([source](https://messari.io/report/state-of-ens-q3-2022)), solidifies the Ethereum blockchain as a stronghold for potential dm3 users.
 
-
 ### 2.2. Advantages of the dm3 Protocol in the Web3 Messaging Landscape 
+
 In the rapidly evolving messaging landscape, the dm3 protocol distinguishes itself by introducing several key advantages that change the way we communicate in the web3 era. These advantages usher in a new era of privacy, security, and interoperability:
 
 - **Interoperable Standard with Privacy Focus**
@@ -113,60 +114,116 @@ dm3 can handle a large number of users and messages without compromising on resp
 - **Modular Design and Extensions**
 The dm3 protocol embraces a modular design, allowing for the incorporation of various extensions and optional features. This adaptability tailors its functionalities to diverse messaging needs, from private peer-to-peer conversations to group communication.
 
+### 2.3. Communication as a Public Good
 
-## 3. Communication as a Public Good
+2.3.1. Censorship resistant
+2.3.2. Open Source - Open Standards
+2.3.3. Inclusivity and Accessability
+2.3.4. Community
 
-3.1. Censorship resistant
-3.2. Open Standards
-3.3. Inclusivity and Accessability
+## 3. The dm3 Protocol
 
-## 4. dm3 protocol
-### 4.1. Value proposition/Technology
-dm3 protocol provides a decentralized, end-to-end encrypted messaging protocol for Web3, aiming to bridge interoperability gaps across platforms without compromising security, privacy, or user experience, thereby transforming the messaging ecosystem for a connected and self-sovereign communication future
+The dm3 protocol provides a decentralized, end-to-end encrypted messaging protocol for Web3, aiming to bridge interoperability gaps across platforms without compromising security, privacy, or user experience, thereby transforming the messaging ecosystem for a connected and self-sovereign communication future
 
-### 4.2. Mission
+### 3.1. The Mission
+
 Our mission sets the stage for a new era of communication in Web3 by breaking down the barriers set by centralized Web2 platforms and establishing new standards for user-centric, self-sovereign communication.
 
-### 4.3. Vision
+### 3.2. The Vision
+
 We see a world where individuals communicate freely and securely, where privacy is upheld as a fundamental right, and where the power dynamics of centralized platforms are rebalanced in favor of users.
 
-4.4. Base Architecture
-4.4.1. Blockchain layer
-4.4.2. Protocol layer
-4.4.3. Application layer
-4.5. Base Protocol
-4.5.1. Registry
-4.5.2. Delivery Service
-4.6. Protocol Extensions
-4.6.1. Group chat
-4.6.2. Billboard chat
-4.6.3. Public Feeds
-4.6.4. Privacy
-4.6.5. Limited Scope Profiles
-4.6.6. Top Level Aliases
-4.6.7. Storage and Replication
-4.6.8. Spam protection
-4.6.9. Token gated access
-4.7. Interaction
-4.7.1. Search
-4.7.2. Notification
-4.8. Interoperability
-4.8.1. Gateways
-4.9. Messenger
-4.9.1. Embedded Widgets
-4.9.2. Messenger
+### 3.3. The Core Protocol
 
-## 5. Tokenomics
-5.1. Token Utility
-5.1.1. Standard
-5.1.2. Governance
-5.1.3. Application functions
-5.2. Token Distribution
-5.2.1. Categories
-5.2.2. Community
+#### 3.3.1. Message Relay Network
 
-## 6. Roadmap
-6.1. Timeline with development milestones (only mention)
-6.2. Key updates and releases (brief description)
+#### 3.3.2. Communication Profile Registry
 
-## 7. References
+#### 3.3.3. Address- and Token-based Function
+
+#### 3.3.4. Cross-chain
+
+
+
+### 3.4. Interoperability
+
+#### 3.4.1. Gateways to other networks
+
+#### 3.4.2. Messaging Bridges
+
+
+
+### 3.5. Spam Protection
+
+#### 3.5.1. Black- and Whitelists
+
+#### 3.5.2. Proof-of-Activity
+
+#### 3.5.3. Proof-of-Ownership
+
+#### 3.5.4. Token Stake and Burn
+
+
+
+### 3.6. Architecture
+
+#### 3.6.1. Blockchain layer
+
+#### 3.6.2. Protocol layer
+
+#### 3.6.3. Application layer
+
+
+
+### 3.7. Protocol Extensions
+
+#### 3.7.1. Group chat
+
+#### 3.7.2. Billboard chat
+
+#### 3.7.3. Public Messages
+
+#### 3.7.4. Privacy Routing
+
+#### 3.7.5. Linked Profiles
+
+#### 3.7.6. Cross-Chain
+
+#### 3.7.7. Token gated access
+
+#### 3.7.8. Embedded Services
+
+#### 3.7.9. Storage, Notification,...
+
+
+### 3.8. Messenger UI
+
+#### 3.8.1. Embedded Widgets
+
+#### 3.8.2. Messenger
+
+
+
+## 4. DM3 Token and Tokenomics
+
+### 4.1 Token Standard
+
+### 4.2. Token Utility
+
+#### 4.2.1. Network Application (Utilities)
+
+##### 4.2.1.1. Spam Protection
+
+##### 4.2.1.2. Privacy
+
+#### 4.2.2. Governance
+
+#### 4.2.3. Standard Incentive
+
+### 4.5. Token Distribution
+
+
+
+## 5. Roadmap
+
+## 6. References

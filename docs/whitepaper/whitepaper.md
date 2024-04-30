@@ -114,38 +114,70 @@ dm3 can handle a large number of users and messages without compromising on resp
 - **Modular Design and Extensions**
 The dm3 protocol embraces a modular design, allowing for the incorporation of various extensions and optional features. This adaptability tailors its functionalities to diverse messaging needs, from private peer-to-peer conversations to group communication.
 
-### 2.3. Communication as a Public Good
+### 2.3. Communication as a Public Good ???
 
-2.3.1. Censorship resistant
-2.3.2. Open Source - Open Standards
-2.3.3. Inclusivity and Accessability
-2.3.4. Community
+#### 2.3.1. Open Source - Open Standards
+
+#### 2.3.2. Inclusivity and Accessability
+
+#### 2.3.3. Community
+
+#### 2.3.4. Censorship resistance
+
+
 
 ## 3. The dm3 Protocol
 
-The dm3 protocol provides a decentralized, end-to-end encrypted messaging protocol for Web3, aiming to bridge interoperability gaps across platforms without compromising security, privacy, or user experience, thereby transforming the messaging ecosystem for a connected and self-sovereign communication future
+The dm3 protocol provides a decentralized, end-to-end encrypted, messaging protocol, aiming to bridge interoperability gaps across platforms without compromising security, privacy, or user experience, thereby transforming the messaging ecosystem for a connected and self-sovereign communication future.
 
 ### 3.1. The Mission
 
-Our mission sets the stage for a new era of communication in Web3 by breaking down the barriers set by centralized Web2 platforms and establishing new standards for user-centric, self-sovereign communication.
+Our mission sets the stage for a new era of communication in Web3 by breaking down the barriers set by centralized Web2 platforms and establishing new standards for user-centric, self-sovereign communication. The focus is not on replacing existing and established solutions or driving them out of the market, but on connecting them. At the same time, however, the dm3 protocol is intended to provide new solutions with a suitable basis for setting up modern communication in such a way that security, privacy, interoperability, and the user's self-sovereignty are at the very center of attention.
 
 ### 3.2. The Vision
 
-We see a world where individuals communicate freely and securely, where privacy is upheld as a fundamental right, and where the power dynamics of centralized platforms are rebalanced in favor of users.
+We see a world where individuals communicate freely and securely, where privacy is upheld as a fundamental right, and where the power dynamics of centralized platforms are rebalanced in favor of users. Beginning with web3 messaging, dm3 protocol will establish a connected messaging ecosystem that enables the users self-sovereignly to manage their communication and messaging solutions and being interoperable with others without compromising their security, privacy, and UX.
 
 ### 3.3. The Core Protocol
 
 #### 3.3.1. Message Relay Network
 
+There are various approaches to implementing decentralized communication. It is important that an infrastructure is implemented that is not controlled by or dependent on one party (organization or company).
+With dm3, the infrastructure is based on a decentralized **Message Relay Node Network**. These relay nodes (delivery service) are independent and have the task of temporarily storing messages (message cache) until they are picked up by the recipient. As soon as the messages have been retrieved and processed by the recipient, they are deleted.
+
+Each recipient decides for themselves which relay nodes they want to be connected to and thus via which nodes they can be reached. They can operate their own message relay node, use the node of a specific service or use public independent nodes.
+Since the relay nodes do not redistribute the messages in the network, this type of distributed network is easily scalable by adding further nodes.
+
+The nodes can also perform other tasks, e.g. for extended privacy, or they can also act as a gateway to other protocols and services. In this case, the relay node would receive a message and then inject it into the other network or service. This makes them crucial building blocks for interoperability.
+
+The message relay nodes are expressly not intended for the permanent storage of messages, but this is the task of the clients, which do this locally, in a cloud service, or even in a decentralized data store, depending on requirements and implementation.
+
 #### 3.3.2. Communication Profile Registry
 
-#### 3.3.3. Address- and Token-based Function
+To enable secure encrypted and tamper-proof communication, various public keys and information about how messages can be delivered must be published. To enable a decentralized, permissionless and censorship-resistant architecture, the registry that publishes this information (communication profile) must be centrally accessible and yet decentralized. A central service provider cannot assume this function.
+Web3 technology lends itself precisely to this, with a blockchain-based registry taking on this task.
 
-#### 3.3.4. Cross-chain
+Such a communication profile contains:
 
+- **Encryption key:** public keys for end-to-end encryption
+- **Signature key:** public keys for signatures
+- **Delivery Information:** Information on which message relay nodes can be used to deliver the messages.
 
+The dm3 protocol uses ENS (Ethereum Name Service) for this registry. Each ENS name (or sub-name) can hold a text record that contains the profile.
+
+#### 3.3.3. Cross-chain, L2s, and Cloud-Services
+
+Registries from other sources (be it other chains (cross-chain), L2s, Identity profiles, or even cloud services) can also be integrated via customized resolvers (via CCIP - Cross-Chain-Interoperability Protocol) and linked to a sub-name. In this way, the ENS-based registry can be used as a universal registry for communication profiles, regardless of where the actual information is ultimately published.
+
+#### 3.3.4. Token-based Functions
+
+A special capability of Web3 technology is that values can be digitally linked, locked, or transmitted. This is used by dm3 to effectively implement various functions, e.g. spam protection, extended privacy functions.
 
 ### 3.4. Interoperability
+
+Most messengers currently in use are closed ecosystems. Communication between users of different platforms is not possible because the protocols and infrastructures are not compatible or, in the past, even interoperability was actively prevented by the service providers.
+From the point of view of many users, interoperability is important and desirable. Interoperability can be divided into different levels: ???
+
 
 #### 3.4.1. Gateways to other networks
 

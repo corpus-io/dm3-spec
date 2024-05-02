@@ -176,13 +176,53 @@ A special capability of Web3 technology is that values can be digitally linked, 
 ### 3.4. Interoperability
 
 Most messengers currently in use are closed ecosystems. Communication between users of different platforms is not possible because the protocols and infrastructures are not compatible or, in the past, even interoperability was actively prevented by the service providers.
-From the point of view of many users, interoperability is important and desirable. Interoperability can be divided into different levels: ???
+From the point of view of many users, interoperability is important and desirable. Interoperability can be divided into different levels:
 
+- **Level 1:** New messages can be transferred from one system to another. The storage of messages remains the responsibility of the system
+- **Level 2:** In addition to transferring new messages, it is also possible to synchronize saved conversations.
+- **Level 3:** All resources can be shared (new messages, historical conversations, configurations, ...)
 
-#### 3.4.1. Gateways to other networks
+Level 1 is required for an interoperable ecosystem, level 2 is useful but not essential. To support the greatest possible diversity, level 3 is not helpful, as different architectures (centralized, decentralized, different network types, ...) and a focus on different use cases would lead to disproportionate and therefore impractical overheads.
+
+In the core protocol, the dm3 protocol focuses exclusively on the transmission of messages (level 1). Replication of historical conversations (level 2) is provided as a protocol extension.
+
+#### 3.4.1. Gateways to other networks and serivces
+
+The dm3 message relay network enables the decentralized transmission of messages between individual users. In addition, the message relay nodes can also serve as a gateway to other networks and services.
+A message gateway consists of one or more message relay nodes via which the recipient can be addressed in the dm3 network. However, instead of storing the received messages and keeping them ready for retrieval, the messages are transferred to the connected system.
+
+Any existing messaging service or messaging network can be made dm3 interoperable by implementing the following:
+
+1. publishing user dm3 profiles in ENS names or subnames. This is done by connecting the data source via a CCIP resolver.
+2. implementing and operating a gateway consisting of a message relay node and a node or client of the connected system.
+3. integration of the dm3 encoder and decoder into the client in order to read the embedded dm3 message or to wrap a sent message in a dm3 envelope.
+
+Gateways can be operated decentrally and non-custodially. This means in particular that gateways can (and should) be designed in such a way that there are no middlemen who have access to the content at any time or who could censor the conversations. All keys are exclusively under the control of the user (or the client).
+
+##### 3.4.1.1. Receive messages from dm3 network
+
+Messages that are sent via a gateway are end-to-end encrypted by dm3 and are at the gateway embedded in a message from the connected system and re-encrypted if so required. To show the message, the receiving client uses a dm3 decoder to make the message readable for the user.
+This means that messages sent via a gateway are securely encrypted end-to-end at all times and the security, encryption and privacy of the connected system are not restricted or reduced in any way.
+
+???[image send from dm3 to service]
+
+##### 3.4.1.2. Send messages into the dm3 network
+
+Messages can also be sent to all other dm3-compatible recipients via the gateways. To do this, the message is first encrypted by a dm3 encoder for the recipient and then packaged as a data packet in a message that is addressed to the gateway. The gateway extracts the message, which is still dm3 encrypted, and sends it to the recipient using the dm3 message transport protocol.
+
+???[image send from service to dm3]
 
 #### 3.4.2. Messaging Bridges
 
+While gateways are well suited and the best way to integrate networks and services into the dm3 ecosystem, it is necessary that the various customizations in the clients are necessary to establish dm3 interoperability. But what if a messenger, messaging service or network does not want to cooperate? Then there are messaging bridges!
+The aim of messaging bridges is to enable messages to be sent to other systems without having to rely on their cooperation. Changes to their clients, their protocol or infrastructure are not necessary. All that is needed is an API that can be used to inject messages into the system (or to receive messages).
+A messaging bridge is also a message relay node on the dm3 side, which can receive messages via the dm3 message transport protocol. In addition, the messaging bridge provides the necessary dm3 profiles for the recipients, which also means that the dm3 keys are kept in custody.
+
+##### 3.4.2.1. Receive messages from dm3 network
+
+To send a message from a dm3 interoperable client, the message is first encoded according to the rules of the receiving system (which usually includes appropriate encryption). Corresponding encoders (and decoders if necessary) are available in the dm3 library and API.
+This message is then sent to the bridge as an attachment to a dm3 message. Since the bridge has control over the dm3 keys, it can read the (dm3) message. The actual message, which is encrypted in the attachment, is then forwarded to the connected system via its API.
+Since the bridge only processes the message encrypted according to the rules of the receiving system, the content is still securely encrypted end-to-end. The only limitation is that a bridge could possibly censor messages so that they are not forwarded to certain recipients.
 
 
 ### 3.5. Spam Protection

@@ -224,14 +224,34 @@ To send a message from a dm3 interoperable client, the message is first encoded 
 This message is then sent to the bridge as an attachment to a dm3 message. Since the bridge has control over the dm3 keys, it can read the (dm3) message. The actual message, which is encrypted in the attachment, is then forwarded to the connected system via its API.
 Since the bridge only processes the message encrypted according to the rules of the receiving system, the content is still securely encrypted end-to-end. The only limitation is that a bridge could possibly censor messages so that they are not forwarded to certain recipients.
 
+##### 3.4.2.2. Send messages into the dm3 network
+
+To send messages from a service to the dm3 network, the Messaging Bridge creates a virtual user to whom the message is then sent. However, the message received by the messaging bridge is not decrypted by the bridge, but in turn embedded in a dm3 message and sent to the recipient. Received in a dm3 sub-operable client, it is then decoded accordingly.
 
 ### 3.5. Spam Protection
 
+Spam is a major challenge in current communication systems. Depending on the survey, between 50% and well over 90% of all emails sent are classified as spam. But spam and the fight against it is also an important issue in the larger messenger services.
+Centralized systems generally find it somewhat easier to take action against spam, as they can censor more easily via their central infrastructure than in decentralized infrastructures (such as email).
+All widely used approaches to curbing spam are based on blocking messages suspected of being spam. With web3-based methods, however, it is possible to go further and make the sending of spam so unattractive for the sender that the motivation to send spam is no longer there.
+The dm3 protocol uses a web3-based multi-level spam defense system, which in combination makes spam unprofitable for the sender while not significantly hindering the desired communications.
+
 #### 3.5.1. Black- and Whitelists
+
+**Blacklists** are a common method of filtering messages from proven malicious senders. In terms of web3-based communication, this means that addresses that have become conspicuous are included in such lists and can then be filtered out. 
+This makes it possible to use public lists of known scammers and spammers for pre-filtering. As all messages in dm3 are signed by the sender, it is not possible for spammers to use the identity of others to send messages.
+This method should be used in combination, as it cannot provide reliable protection against spam. However, blacklists in web3 are only effective to a limited extent, as a spammer can easily keep generating new addresses that are not yet on the blacklist. Blacklists are mainly used to evaluate public lists (e.g. on which sanctioned users are noted).
+
+**Whitelists** are suitable for giving preferential treatment to addresses that the user trusts. This makes it easy to exclude addresses on such a list from the check of further criteria, which are described in the following paragraphs.
 
 #### 3.5.2. Proof-of-Activity
 
+The sender's address is regarded as **proof of activity** if it has a nonce greater than 1 (or a number > 1 specified by the recipient). This ensures that this address has already been active and transactions have been executed. This is usually not a problem for a "normal" wallet address of an active wallet.
+However, if spammers try to send spam from newly generated addresses, they would first have to carry out transactions before they could use these addresses to send spam. This costs both money (transaction fees) and time (until the transaction is added to the blockchain). It also massively limits the number of possible new addresses. While a spammer could create an unlimited number of new addresses, the number of "used" addresses depends on the capacity of the blockchain, as at least one transaction would have to originate from each address.
+This method is well suited to preventing spam attacks in which spammers constantly generate new addresses in order to circumvent block lists.
+
 #### 3.5.3. Proof-of-Ownership
+
+
 
 #### 3.5.4. Token Stake and Burn
 

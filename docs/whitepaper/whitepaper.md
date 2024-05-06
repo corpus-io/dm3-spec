@@ -243,19 +243,33 @@ This method should be used in combination, as it cannot provide reliable protect
 
 **Whitelists** are suitable for giving preferential treatment to addresses that the user trusts. This makes it easy to exclude addresses on such a list from the check of further criteria, which are described in the following paragraphs.
 
+These methods can already be executed by the message relay node so that potential spam is not even accepted.
+
 #### 3.5.2. Proof-of-Activity
 
 The sender's address is regarded as **proof of activity** if it has a nonce greater than 1 (or a number > 1 specified by the recipient). This ensures that this address has already been active and transactions have been executed. This is usually not a problem for a "normal" wallet address of an active wallet.
+
 However, if spammers try to send spam from newly generated addresses, they would first have to carry out transactions before they could use these addresses to send spam. This costs both money (transaction fees) and time (until the transaction is added to the blockchain). It also massively limits the number of possible new addresses. While a spammer could create an unlimited number of new addresses, the number of "used" addresses depends on the capacity of the blockchain, as at least one transaction would have to originate from each address.
-This method is well suited to preventing spam attacks in which spammers constantly generate new addresses in order to circumvent block lists.
+
+This method is well suited to preventing spam attacks in which spammers constantly generate new addresses in order to circumvent block lists. This method can already be executed by the message relay node so that potential spam is not even accepted.
 
 #### 3.5.3. Proof-of-Ownership
 
+Another way to make sending spam unattractive is to require the sender to hold a certain number of tokens or an NFT from a certain collection on their wallet. This also prevents newly generated addresses from being used to send spam, as the spammer would then have to equip all these addresses with these tokens.
 
+This is not a relevant challenge for regularly used wallets. To send a message to a recipient who requires this condition, the required tokens must be transferred to the wallet. However, the possession of exotic tokens or very high amounts should not be required, as this may represent an obstacle to use.
+
+However, this also results in high costs and expenses for the potential spammer if he first has to equip each new address with tokens before it can be used for sending. This method can already be executed by the message relay node so that potential spam is not even accepted.
 
 #### 3.5.4. Token Stake and Burn
 
+While the methods already listed serve to limit mass spam in particular, a next level of spam protection is being introduced.
 
+Each recipient defines how many dm3 tokens a sender has to deposit as security to guarantee that the message is not spam or scam.
+For a sender to be able to submit a message to the recipient's message relay, it must have deposited at least the required amount. Only then will the message relay accept the message.
+If the recipient declares the message to be spam, part of the deposit is burned and the sender of the spam is penalized. In this way, it can become arbitrarily expensive for the sender of spam, so that sending spam is no longer profitable at all.
+If the message is accepted, the deposit is not affected. This means that nothing happens in regular conversations and the sender does not have to fear any loss.
+The message relay can already check whether the sender has made a sufficiently large deposit. The execution of the punishment for spam requires interaction with the receiving client.
 
 ### 3.6. Architecture
 

@@ -267,40 +267,69 @@ While the methods already listed serve to limit mass spam in particular, a next 
 
 Each recipient defines how many dm3 tokens a sender has to deposit as security to guarantee that the message is not spam or scam.
 For a sender to be able to submit a message to the recipient's message relay, it must have deposited at least the required amount. Only then will the message relay accept the message.
-If the recipient declares the message to be spam, part of the deposit is burned and the sender of the spam is penalized. In this way, it can become arbitrarily expensive for the sender of spam, so that sending spam is no longer profitable at all.
+If the recipient declares the message as spam, part of the deposit is burned and the sender of the spam is penalized. In this way, the sender of spam can be penalized at any cost, so that sending spam is no longer profitable at all.
 If the message is accepted, the deposit is not affected. This means that nothing happens in regular conversations and the sender does not have to fear any loss.
-The message relay can already check whether the sender has made a sufficiently large deposit. The execution of the punishment for spam requires interaction with the receiving client.
+The message relay can also check whether the sender has deposited a sufficiently high deposit. The execution of the punishment for spam requires interaction with the receiving client.
 
 ### 3.6. Architecture
 
-#### 3.6.1. Blockchain layer
+The dm3 protocol consists of different layers. It has a strictly modular structure so that the required parts of the protocol and therefore also the libraries and APIs can be tailored precisely to the use case.
 
-#### 3.6.2. Protocol layer
+It consists of 3 layers:
 
-#### 3.6.3. Application layer
+1. **Blockhain Layer:** Besides ENS (Ethereum Name Service), which is based on Ethereum, all interfaces APIs to other data sources (other chains, layer-2, cloud services, ...) are defined in this layer.
+2. **Protocol layer:** In addition to the core protocol (message transport protocol), there are many optional extensions.
+3. **Application Layer:** The APIs for integration into other protocols, services and apps and the existing UI components for direct integration into other applications form the Applications layer.
 
-
+??? image module
 
 ### 3.7. Protocol Extensions
 
+The following protocol extensions are only outlined to show the modular expandability of the dm3 protocol and its applications.
+
 #### 3.7.1. Group chat
+
+In the dm3 core protocol, the peer-to-peer messaging is defined. However, a group chat function is also required for many applications. Group messaging must fulfill the same security and privacy criteria as peer-to-peer messaging.
+
+Two different types are implemented, one for small groups, based on the peer-to-peer protocol, and one for large groups, based on shared group chat keys.
 
 #### 3.7.2. Billboard chat
 
+The Billboard chat extension provides a public chat that dm3 users can join to participate in the public conversation. The chat history is public, every added statement is published.
+Billboard chats can be used e.g. as a conference chat or to create public discussion groups.
+
 #### 3.7.3. Public Messages
+
+Public messages are public statements that a user publishes. They can be clearly associated with the user (tamper-proof), but are publicly readable.
+These public messages can be integrated as posts in social media platforms or used as status information.
 
 #### 3.7.4. Privacy Routing
 
+Even if the content of dm3 messages is end-to-end encrypted and therefore private, and even if the decentralized message relay node network does not make general tracking of communications possible, monitoring individual nodes would possibly reveal transmission paths.
+For communications with increased privacy requirements, it is possible to handle the communication between clients and message relay nodes via a privacy network. The dm3 message relay node network itself can also be used to keep the transmission information secret.
+For this purpose, the message is not sent directly from the client to the receiving message relay node, but is first redirected via several (at least 3) nodes. As these nodes only know from whom they receive the packaged message and to whom they should forward it, the connection between the original sender and the recipient is broken after 3 independent forwardings.
+
+Message relay nodes can offer this privacy service as an option. These services can be remunerated via a decoupled incentive system without restricting privacy.
+
 #### 3.7.5. Linked Profiles
 
-#### 3.7.6. Cross-Chain
+Messaging is used in a wide variety of applications. In addition to the main messenger, which represents a user's inbox and is their central communication platform, messaging components can be integrated into other applications (e.g. wallet to wallet or dapp to dapp messaging, support messenger, ...). Usually these embedded messaging functions are independent and often neither decentralized nor well secured.
+With dm3 embedded components and linked profiles (limited scope profiles), local or application-related profiles can be created that are controlled with the same wallet or identity. If required, these can simply be linked to the user's main inbox so that they can track these communications there as.
 
-#### 3.7.7. Token gated access
+This makes it possible both to create and maintain anonymous subprofiles for these applications and to link them to the main profile in order to manage important communications in one place.
 
-#### 3.7.8. Embedded Services
+#### 3.7.6. Token gated access
 
-#### 3.7.9. Storage, Notification,...
+For various applications, it makes sense that only a limited user group is allowed to participate in a communication. Whereas in centralized applications, access restriction is implemented by the central user management. In a decentralized application, access control can be controlled via the possession of tokens or NFTs.
+With this extension, it is also possible to build closed communities that are fully interoperable with other messengers.
 
+#### 3.7.7. Embedded Services
+
+A particular strength of web3 is its ability to digitize not only information but also values and make them transferable. With the embedded services extension, it is possible to integrate additional functions into the conversations. This can be the direct transfer of tokens in a message, but also any interaction with other dApps.
+
+#### 3.7.8. Storage, Notification, Search,...
+
+In order to implement a messenger service, in addition to the transmission of messages (core protocol) and protocol extensions for extended messaging functionalities, functions such as the effective storage of communications, the forwarding of notifications for incoming messages, search functions, etc. must also be realized. Even if this is primarily the task of the clients, the dm3 protocol provides corresponding specifications, libraries and APIs.
 
 ### 3.8. Messenger UI
 

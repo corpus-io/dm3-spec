@@ -323,37 +323,100 @@ This makes it possible both to create and maintain anonymous subprofiles for the
 For various applications, it makes sense that only a limited user group is allowed to participate in a communication. Whereas in centralized applications, access restriction is implemented by the central user management. In a decentralized application, access control can be controlled via the possession of tokens or NFTs.
 With this extension, it is also possible to build closed communities that are fully interoperable with other messengers.
 
-#### 3.7.7. Embedded Services
+### 3.8. Utility extensions
 
-A particular strength of web3 is its ability to digitize not only information but also values and make them transferable. With the embedded services extension, it is possible to integrate additional functions into the conversations. This can be the direct transfer of tokens in a message, but also any interaction with other dApps.
+Additinal utility modules provide functions which help to build messaging applications but are not directly connected to the messsaging core protocol.
 
-#### 3.7.8. Storage, Notification, Search,...
+#### 3.8.1. Embedded Services
 
-In order to implement a messenger service, in addition to the transmission of messages (core protocol) and protocol extensions for extended messaging functionalities, functions such as the effective storage of communications, the forwarding of notifications for incoming messages, search functions, etc. must also be realized. Even if this is primarily the task of the clients, the dm3 protocol provides corresponding specifications, libraries and APIs.
+A particular strength of web3 is its ability to digitize not only information but also values and make them transferable. With the embedded services extension, it is possible to integrate additional applications into the conversations. This can be the direct transfer of tokens in a message, but also any interaction with other dApps.
 
-### 3.8. Messenger UI
+#### 3.8.2. Storage
 
-#### 3.8.1. Embedded Widgets
+With the dm3 storage extension, an effective hierachical storage scheme to store fully encrypted conversations. The focus here is on storing conversations and messages in such a way that they can be accessed quickly and efficiently, regardless of whether the data is stored locally, in a database or in decentralized storage.
+
+#### 3.8.3. Notification
+
+Notifications that a message has been received and is waiting to be picked up are very important to implement a user-friendly messanger. The notification extension provides various options for such notifications. Particular attention is paid to ensuring that security and privacy are not unintentionally restricted.
+
+### 3.9. Messenger UI ???
+
+#### 3.9.1. Embedded Widgets
 
 #### 3.8.2. Messenger
 
-
-
 ## 4. DM3 Token and Tokenomics
+
+The DM3 token is the utility token of the dm3 network. It is used to implement 3 main applications:
+
+1. **Utility** applications in the dm3 network
+2. **Governance** for the dm3 protocol
+3. **Incentive** for standardization
 
 ### 4.1 Token Standard
 
-### 4.2. Token Utility
+The DM3 token is designed as an ERC20 token and is deployed on Ethereum or a suitable layer 2. Depending on the required use cases, it is bridged to other chains.
+As a utility token in accordance with the provisions of MiCAR regulation, the token can be traded on centralized and decentralized exchanges. This is necessary, among other things, because users must be able to obtain tokens in order to perform certain network functions or participate in governance processes.
+
+### 4.2. Token Utilities
 
 #### 4.2.1. Network Application (Utilities)
 
+The token will be used for future applications in the dm3 ecosystem. Under no circumstances will the token be used to pay for services from dm3.org (the token is therefore NOT a voucher for a service from dm3.org). The possible payment function exists exclusively between users of the dm3 network.
+
+The token is used for the following purposes:
+
 ##### 4.2.1.1. Spam Protection
 
-##### 4.2.1.2. Privacy
+The DM3 token is used as a utility in [spam protection](#35-spam-protection). For this purpose, DM3 tokens are stored by the sender. In the event that the recipient declares a message as spam, the amount specified by the recipient is burned. This ensures that spammers risk losing tokens with every spam message they send. No costs are incurred for regular messages, as the deposit is not touched.
 
-#### 4.2.2. Governance
+Only if the sender has made a high enough deposit can he or she send a message. Technically, this mechanism is similar to staking. The deposited amount is used as collateral. However, no profits are distributed here, but the depositing of tokens is equivalent to an authorization to deliver messages.
 
-#### 4.2.3. Standard Incentive
+##### 4.2.1.2. Reading incentive for advertising messages
+
+Similar to spam protection, a payable amount of DM3 token can be linked to a message. If a user is willing to receive advertising messages, they can read these messages and receive the attached amount in return.
+This allows direct marketing to be realized without intermediaries. The advertising payments go directly to the potential customer.
+
+##### 4.2.1.3. Privacy routing
+
+An incentive model is also required for the privacy protocol extension described so that message relay nodes are prepared to forward messages.
+Direct payment does not make sense, as this would invalidate privacy. To be able to use privacy routing, the sender must pay an amount into a privacy pool. The sender can prove this with a corresponding proof without disclosing privacy-relevant details.
+
+Nodes that have successfully rooted messages or were ready can also prove this with a proof without disclosing the details.
+At the end of a period, the privacy pool is distributed to the nodes that were active based on the proofs.
+
+#### 4.2.3. Governance
+
+In order to create the best possible conditions for broad use of the dm3 protocol, dm3 is a public resource that is freely accessible and can be used without restriction. 
+The involvement of users in decisions regarding the further development and adaptation of the protocol and its extensions, as well as development priorities and other community activities, is also very important.
+The dm3.org organization (which may later become the dm3 DAO) makes decisions based on votes, with each token representing one vote. In this way, the owners of the dm3 tokens are involved in the decisions. 
+
+##### 4.2.3.1. Delegation of votes
+
+To make these voting processes practicable, token holders can delegate votes to delegates who can then vote on their behalf. In the case of delegation, the tokens are not transferred, only the voting rights are bundled. 
+
+##### 4.2.3.2. Voting
+
+Votes are submitted to the token holders in the form of proposals. These or the delegates who hold the votes can then express their approval or rejection. The voting result is used as the basis for dm3.org's decision and, in the event of a positive decision, is implemented by dm3.org directly, on behalf of dm3.org or directly by the community.
+
+#### 4.2.4. Standard Incentive
+
+Establishing a new interoperability standard is a complex challenge. It must be ensured that as heterogeneous a group of potential adopters of the standard as possible can contribute their requirements in a coordinated manner and that a suitable technical solution is defined for them. In addition, the potential adopters must be motivated to implement or integrate the standard, which means development effort on the one hand, but on the other hand does not initially bring the desired benefits, especially for the first adopters, until others have also implemented the standard.
+
+##### 4.2.4.1. Issue of tokens
+
+dm3 tokens are issued as an incentive to establish and use the dm3 standard. This will motivate early adopters in particular to implement the dm3 standard or use solutions based on it. Early adopters and users thus receive a share in the dm3 network and can influence the further development of dm3 in particular.
+
+Three groups of users receive tokens. However, the exact criteria for what and how many tokens are awarded will only be published in detail at the time of allocation in order to prevent manipulation.
+
+**Adoption (interoperability):**
+Protocols, services and applications that implement or build on the dm3 protocol and thus establish interoperability with the dm3 ecosystem will receive tokens. The distribution should be designed in such a way that early adoption leads to a higher number of tokens. This creates an incentive to implement the dm3 protocol quickly. As this is crucial for the establishment of the standard, most tokens are awarded for this purpose. 
+
+**Integration of dm3 components:**
+Applications that use embedded dm3 components, e.g. for in-app messaging, as an embedded chat function or as a support chat, will also receive tokens. This is intended to create an incentive to integrate secure messaging based on dm3 into applications and thus expand the dm3 ecosystem and use the standard.
+
+**Early adopters:**
+The success of the ecosystem and thus of the standard depends heavily on many users deploying dm3-based applications. By publishing active dm3 profiles, many users can be reached via dm3, thereby promoting the benefits of the standard. Early adopters receive tokens as motivation to use dm3-based applications. This means that all dm3-compatible applications benefit from this incentive.
 
 ### 4.5. Token Distribution
 
